@@ -2,9 +2,8 @@
 
 Stills from the recorded run that support the findings in [`../REPORT.md`](../REPORT.md). Each image is captioned with what it shows and the report section it backs.
 
-These frames come from the author's own isolated lab, against a device the author owns, running an already-patched vulnerability (CVE-2022-40684, public since 2022 with widely available PoCs). Some stills show lab-internal values (addressing, a device serial, example requests for the public CVE PoC). Final redaction for any public distribution is handled by the author.
+These frames come from the author's own isolated lab, against a device the author owns, running an already-patched vulnerability (CVE-2022-40684, public since 2022 with widely available PoCs). 
 
-**Kept private, never in this repository:** raw session recordings, device configuration backups, credentials and keys, and the system's raw database.
 
 ## screenshots/
 
