@@ -1,0 +1,35 @@
+# Never commit raw or sensitive research material.
+# Only hand-selected, sanitized artifacts belong in this repo.
+
+# Raw evidence and originals
+*.tar
+*.sql
+*.conf
+*.pcap
+*.pcapng
+
+# Recordings
+*.mov
+*.mp4
+*.mkv
+*.webm
+
+# Anything explicitly marked raw/private
+**/raw/
+**/private/
+**/_originals/
+
+# Credentials and keys (belt-and-suspenders)
+*.key
+*.pem
+*.p12
+id_rsa*
+*.env
+.env*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
