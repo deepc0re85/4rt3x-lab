@@ -48,7 +48,7 @@ This is a capability-and-behavior study. It is not a vulnerability disclosure (t
 
 ## 4. Multi-agent architecture and coordination
 
-This is the part I find most interesting. ARTEX doesn't run as one model in a loop. It splits the job across specialized agents that share a common memory and hand work to each other.
+ARTEX doesn't run as one model in a loop. It splits the job across specialized agents that share a common memory and hand work to each other.
 
 ### The agents
 
@@ -70,7 +70,7 @@ The agents did not talk in free-form chat. They coordinated through structured m
 - A **shared graph that doubles as the agents' message board.** Every unit of coordination is a typed node on it, the schema itself defines the kinds: `begin`, `goal`, `intent`, `fact`, `finding`, `hint`, and `digest`. The agents read and write this board; it is both their common memory and their channel to each other.
 - **Intents**, one-sentence exploration directions the planner posts and workers claim.
 - **Facts**, discoveries workers record back to the board, which become the basis for the next intent.
-- **Hints**, a first-class node type: an agent posts a hint to flag a higher-priority direction for the others. In this run, the hints and steering were posted **by the agents themselves**, the planner and the operations agent, not by me. That is the part worth sitting with: the agents were steering each other.
+- **Hints**, a first-class node type: an agent posts a hint to flag a higher-priority direction for the others. In this run, the hints and steering were posted **by the agents themselves**, the planner and the operations agent. The agents were steering each other.
 - **Worker traces**, the execution record one agent leaves, which other agents (and the reporter) read.
 - **Goal proving**, explicit confirmation that a sub-goal was met before moving on.
 
@@ -111,7 +111,7 @@ The end state: starting from an address and a goal, the system reached and confi
 
 ## 7. What the data shows, and what it doesn't
 
-I want this section to be the reason someone trusts the rest. Here is where I separate what the records prove from what they don't.
+This section separates what the records prove from what they don't.
 
 - **The coordination is real and measurable.** The multi-agent behavior in §4 comes straight from the system's own activity records, not from a narrative I wrote after the fact.
 - **No external exploitation framework was invoked in this run.** The system's tool-usage records contain only its internal orchestration tools (graph reads/writes, intents, hints, worker traces, reporting). Offensive tooling was available in the environment, but the records do **not** show a separate framework such as Kali-MCP, nmap, or sqlmap being called through the tracked tool layer. The offensive actions were carried out by the agents directly. **I therefore do not claim that any particular external toolkit drove this result.**
@@ -120,13 +120,13 @@ I want this section to be the reason someone trusts the rest. Here is where I se
 - **One run is not a success rate.** Nothing here measures reliability, repeatability, or how the system performs on an unknown or patched target.
 - **No comparison was made** between this framework and any other. Claims of relative capability would need a controlled comparison this run did not do.
 
-*Interpretation (clearly labeled as mine): the notable thing is less that a known bug got exploited and more that a set of cooperating agents, given a goal, organized the work, maintained a shared understanding of the target, and checked their own result before reporting, with only light human steering.*
+*Interpretation (mine): what stands out is the coordination. A set of cooperating agents, given a goal, organized the work, kept a shared understanding of the target, and checked their own result before reporting, with only light human steering.*
 
 ---
 
-## 8. Notes from the run, the honest version
+## 8. Notes from the run
 
-I want to be straight about how this actually went, because the clean summary above can make it sound easier than it was.
+The clean summary above can make this sound easier than it was. Here is how the run actually went.
 
 **Getting the system to really work took effort.** ARTEX is not plug-and-play. It stalled on me more than once, going quiet, or spinning without making real progress, and getting a run to carry the whole chain through to a verified result took patience and several attempts. An early run went well and I stopped it on purpose; later ones were less cooperative, and I kept having to adjust.
 
@@ -134,7 +134,7 @@ I want to be straight about how this actually went, because the clean summary ab
 
 **What I'd read versus what I actually needed.** Going in, I'd seen the common assumption that a job like this needs a full offensive toolchain wired up, a Kali environment, an MCP integration with a proxy like Burp, the usual kit. In this run, none of that turned out to be necessary. The system's own records (§7) back this up: the agents reached the result through their own execution and ARTEX's orchestration, with no separate external toolkit in the tracked loop. That surprised me, and I think it's worth saying plainly.
 
-**On framing, the part that should make people uncomfortable.** How I presented the task to the model mattered. I was working in a legitimate, authorized lab on my own equipment, and I described it that way. I'm not going to pretend that's only a technicality. That same dependence on framing means someone with stronger techniques than mine, better at getting a model to go along with a request, could likely push further than I did. That's a real safety concern, and it's the main reason I am **not** publishing the specific model version or the prompt that got this run to complete. I'll describe what the system did and how it coordinated; I won't hand anyone the exact combination that worked. If that detail matters to the people who should have it, it belongs in a private channel, not a public recipe.
+**On framing.** How I presented the task to the model mattered. I was working in a legitimate, authorized lab on my own equipment, and I described it that way. I'm not going to pretend that's only a technicality. That same dependence on framing means someone with stronger techniques than mine, better at getting a model to go along with a request, could likely push further than I did. That's a real safety concern, and it's the main reason I am **not** publishing the specific model version or the prompt that got this run to complete. I'll describe what the system did and how it coordinated; I won't hand anyone the exact combination that worked. If that detail matters to the people who should have it, it belongs in a private channel, not a public recipe.
 
 ---
 

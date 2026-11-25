@@ -11,7 +11,7 @@ Independent, hands-on research into how autonomous AI agents behave in real secu
 
 I run my own experiments. I build controlled, isolated labs on equipment I own, point AI systems at real problems, and write down what happens, the method, the results, and the limitations, so the work holds up and other people can learn from it.
 
-The field around AI and security is full of claims right now. My goal with this repository is simple: add evidence to that conversation instead of more noise. Each entry is a self-contained case study, documented the way I'd want to read it if someone else had done the work.
+The field around AI and security is full of claims right now. My goal with this repository is to add evidence to that conversation. Each entry is a self-contained case study, documented the way I'd want to read it if someone else had done the work.
 
 This is my personal research. Nova Cybersec is where I apply this professionally, but the work here is mine and is not a product pitch.
 
@@ -49,7 +49,7 @@ ai-agent-security-research/
 
 ## About the author
 
-I'm a technology consultant based in Cancún, Mexico, working at the intersection of cybersecurity, applied AI, and research. I've spent years securing and running infrastructure for demanding environments, and these days a lot of my own time goes into applied research and building things in public. I care about evidence over hype, and about being honest regarding what a result does and doesn't show.
+I'm a technology consultant based in Cancún, Mexico, working at the intersection of cybersecurity, applied AI, and research. I've spent years securing and running infrastructure for demanding environments, and these days a lot of my own time goes into applied research and building things in public. I try to be clear about what a result does and doesn't show.
 
 ## License
 
